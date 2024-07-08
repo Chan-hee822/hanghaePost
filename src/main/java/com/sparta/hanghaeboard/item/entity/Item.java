@@ -2,6 +2,7 @@ package com.sparta.hanghaeboard.item.entity;
 
 import com.sparta.hanghaeboard.item.dto.request.ItemRequestDto;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,6 +21,7 @@ public class Item {
     @Column(length = 500)
     private String title;
     private String content;
+    @Min(value = 1, message = "Price must be greater than 0")
     private int price;
     @Column(nullable = false)
     private String username;
